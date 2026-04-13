@@ -17,6 +17,7 @@ func main() {
 	tools.GetCourses()
 	tools.GetPdfs()
 	tools.DownloadPdf()
+	tools.ReserveRoom()
 
 	if err := tools.StartServer(); err != nil {
 		panic(err)

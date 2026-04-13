@@ -13,6 +13,7 @@ type IToolsMcp interface {
 	GetCourses()
 	GetPdfs()
 	DownloadPdf()
+	ReserveRoom()
 }
 
 var NewTools = func(ctx context.Context) (IToolsMcp, error) {
