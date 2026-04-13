@@ -5,11 +5,13 @@ import (
 
 	"github.com/mark3labs/mcp-go/server"
 	"github.com/tariq-ventura/udb-mcp/internal/aula"
+	"github.com/tariq-ventura/udb-mcp/internal/biblio"
 )
 
 type ToolsClient struct {
-	server *server.MCPServer
 	aula   aula.IAuth
+	biblio biblio.IBiblio
+	server *server.MCPServer
 }
 
 var SetupMcp = func(ctx context.Context) (*ToolsClient, error) {
@@ -21,8 +23,15 @@ var SetupMcp = func(ctx context.Context) (*ToolsClient, error) {
 		return nil, err
 	}
 
+	biblio, err := biblio.NewBiblio()
+
+	if err != nil {
+		return nil, err
+	}
+
 	return &ToolsClient{
-		server: s,
 		aula:   aula,
+		biblio: biblio,
+		server: s,
 	}, nil
 }
