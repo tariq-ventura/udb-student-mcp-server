@@ -10,6 +10,8 @@ import (
 type IBiblio interface {
 	GetSession() error
 	ReserveMRBS(dateStr, startSeconds, endSeconds, roomId string) (string, error)
+	GetBiblioSession() error
+	FetchBiblioAccount() (string, error)
 }
 
 var NewBiblio = func() (IBiblio, error) {

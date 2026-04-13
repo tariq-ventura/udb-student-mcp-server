@@ -6,10 +6,11 @@ import (
 )
 
 type KohaClient struct {
-	baseUrl  string
-	username string
-	password string
-	session  string
+	baseUrl       string
+	username      string
+	password      string
+	session       string
+	biblioSession string
 }
 
 var SetupKoha = func() (*KohaClient, error) {
@@ -32,9 +33,10 @@ var SetupKoha = func() (*KohaClient, error) {
 	}
 
 	return &KohaClient{
-		baseUrl:  baseUrl,
-		username: username,
-		password: password,
-		session:  "",
+		baseUrl:       baseUrl,
+		username:      username,
+		password:      password,
+		session:       "",
+		biblioSession: "",
 	}, nil
 }
