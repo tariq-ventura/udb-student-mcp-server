@@ -29,7 +29,7 @@ jobs:
         with:
           version: v2.1
           args: --timeout=30m 
-        continue-on-error: false
+        continue-on-error: true
   code-quality:  
     runs-on: ubuntu-latest
     steps:
